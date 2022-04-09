@@ -1,0 +1,13 @@
+{
+    "elements": {
+        "a": {},
+        "i": {},
+        "li": {},
+        "span": {}
+    },
+    "attributes": {
+        "xlink:href": {
+            "context": "img"
+        }
+    }
+}
