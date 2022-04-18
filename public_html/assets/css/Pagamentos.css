@@ -334,10 +334,10 @@ body.dark .home .text {
 .card-saldo {
   display: grid;
   position: relative;
-  border-radius: 5px;
-  width: 35%;
-  min-width: 35%;
-  height: 25%;
+  border-radius: 10px;
+  width: 45rem;
+  min-width: 15rem;
+  height: 13rem;
   margin: auto;
   text-align: center;
   background-color: #fff;
@@ -353,10 +353,15 @@ body.dark .home .text {
 }
 
 .card-botoes {
-  position: absolute;
-  bottom: 8%;
-  left: 21%;
+  display: grid;
+  position: relative;
+  width: 35rem;
+  grid-template-columns: repeat(2, 2fr);
+  grid-auto-rows: 55px;
+  top: 5%;
+  left: 35%;  
   align-items: center;
+  margin: 0;
 }
 
 .botao {
@@ -370,14 +375,15 @@ body.dark .home .text {
 }
 
 .botao-saldo {
-  display: inline-block;
+  /* display: inline-block; */
   color: black;
   background-color: #95a5a6;
   border-radius: 5px;
   vertical-align: middle;
   font-size: 20px;
   text-decoration: none;
-  width: auto;
+  text-align: center;
+  width: 90%;
   padding: 5px;
   margin: auto;
 }
@@ -408,7 +414,7 @@ body.dark .home .text {
 }
 
 .bem-vindo {
-  font-size: 30px;
+  font-size: 40px;
   margin-top: 0;
   margin-bottom: 20px;
   text-align: center;
@@ -468,3 +474,5 @@ body.dark .home .text {
 .table-header {
   display: none;
 }
+
+/* botões */
