@@ -335,8 +335,7 @@ body.dark .home .text {
   display: grid;
   position: relative;
   border-radius: 10px;
-  width: 45rem;
-  min-width: 15rem;
+  width: 35rem;
   height: 13rem;
   margin: auto;
   text-align: center;
@@ -355,7 +354,8 @@ body.dark .home .text {
 .card-botoes {
   position: absolute;
   bottom: 8%;
-  left: 21%;
+  left: 10%;
+  right: 12%;
   align-items: center;
 }
 

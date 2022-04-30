@@ -335,9 +335,8 @@ body.dark .home .text {
   display: grid;
   position: relative;
   border-radius: 10px;
-  width: 45rem;
-  min-width: 15rem;
-  height: 13rem;
+  width: 40rem;
+  height: 10rem;
   margin: auto;
   text-align: center;
   background-color: #fff;
@@ -354,14 +353,15 @@ body.dark .home .text {
 
 .card-botoes {
   display: grid;
-  position: relative;
   width: 35rem;
   grid-template-columns: repeat(2, 2fr);
   grid-auto-rows: 55px;
   top: 5%;
-  left: 35%;  
+  left: 35%;
   align-items: center;
-  margin: 0;
+  margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .botao {
@@ -403,6 +403,10 @@ body.dark .home .text {
 }
 
 /* card central*/
+
+.card-div {
+  margin-top: 30px;
+}
 
 .container {
   max-width: 1000px;
