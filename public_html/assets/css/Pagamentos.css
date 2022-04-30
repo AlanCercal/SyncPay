@@ -335,7 +335,7 @@ body.dark .home .text {
   display: grid;
   position: relative;
   border-radius: 10px;
-  width: 40rem;
+  width: 35rem;
   height: 10rem;
   margin: auto;
   text-align: center;
@@ -375,15 +375,15 @@ body.dark .home .text {
 }
 
 .botao-saldo {
-  /* display: inline-block; */
-  color: black;
-  background-color: #95a5a6;
+  background-color: #242526;
+  color: white;
   border-radius: 5px;
+  border-width: 1px;
   vertical-align: middle;
   font-size: 20px;
   text-decoration: none;
   text-align: center;
-  width: 90%;
+  width: 80%;
   padding: 5px;
   margin: auto;
 }

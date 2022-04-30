@@ -402,25 +402,31 @@ body.dark .home .text {
 /* botao de adicionar cartao */
 
 .botao-cartao {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+  display: grid;
+  padding: 12px 10px 12px 30px;
   align-items: center;
-  padding: 12px 16px 12px 24px;
-  top: 1fr;
+  justify-content: center;
   left: 45%;
   margin-top: 3%;
-  position: absolute;
-  width: 217px;
+  position: relative;
+  width: 210px;
   height: 48px;
   border-radius: 6px;
-  border: none;
+  border-width: 1px;
   background-color: #242526;
   color: white;
+  font-size: 95%;
+}
+
+.botao-cartao:hover {
+  color: whitesmoke;
+  background-color: #695cfe;
+  border-radius: 5px;
+  transition: var(--tran-03);
 }
 
 .botao-cartao i {
-  display: flex;
+  position: absolute;
   justify-content: center;
   align-items: center;
   margin-left: 15px;

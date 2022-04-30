@@ -371,9 +371,10 @@ body.dark .home .text {
 
 .botao-saldo {
   display: inline-block;
-  color: black;
-  background-color: #95a5a6;
+  background-color: #242526;
+  color: white;
   border-radius: 5px;
+  border-width: 1px;
   vertical-align: middle;
   font-size: 20px;
   text-decoration: none;
