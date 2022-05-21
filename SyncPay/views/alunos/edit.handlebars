@@ -1,0 +1,16 @@
+<h1>Editando {{aluno.nome}}</h1>
+<form action="/alunos/edit" method="POST">
+  <input type="hidden" name="id" value={{aluno.id}}>
+    <label for="nome">Título:</label>
+    <input type="text" name="nome"value="{{aluno.nome}}">
+    <label for="matricula">Matrícula:</label>
+    <input type="text" name="matricula"value="{{aluno.matricula}}">
+  <input type="submit" value="Editar">
+</form>
+
+
+
+
+
+
+
