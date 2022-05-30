@@ -10,13 +10,13 @@
 
 :root {
   /* ===== Colors ===== */
-  --body-color: #e4e9f7;
+  --body-color: #cad0df;
   --sidebar-color: #fff;
   --primary-color: #695cfe;
   --primary-color-light: #f6f5ff;
   --toggle-color: #ddd;
-  --text-color: #474747;
-
+  --text-color: #070707;
+  --button-color: 
   /* ====== Transition ====== */
   --tran-03: all 0.2s ease;
   --tran-03: all 0.3s ease;
@@ -38,7 +38,6 @@ body {
 body.dark {
   --body-color: #18191a;
   --sidebar-color: #242526;
-  --primary-color: #3a3b3c;
   --primary-color-light: #3a3b3c;
   --toggle-color: #fff;
   --text-color: #ddd;
@@ -161,7 +160,7 @@ header .image-text .profession {
 }
 
 body.dark .sidebar header .toggle {
-  color: var(--text-color);
+  color: var(--text-color); 
 }
 
 .sidebar.close .toggle {
@@ -215,7 +214,7 @@ body.dark .sidebar header .toggle {
 }
 
 body.dark li a:hover {
-  background-color: #695cfe;
+  background-color: var(--primary-color);
 }
 
 body.dark .sidebar li a:hover .icon,
@@ -327,103 +326,4 @@ body.dark .switch::before {
 
 body.dark .home .text {
   color: var(--text-color);
-}
-
-/* card de saldo */
-
-.card-saldo {
-  display: grid;
-  position: relative;
-  border-radius: 10px;
-  width: 35rem;
-  height: 10rem;
-  margin: auto;
-  text-align: center;
-  background-color: #fff;
-}
-
-.card-titulo {
-  position: absolute;
-  top: 10%;
-  left: 25%;
-  right: 25%;
-  font-family: monospace;
-  font-size: 50px;
-}
-
-.card-botoes {
-  display: grid;
-  width: 35rem;
-  grid-template-columns: repeat(2, 2fr);
-  grid-auto-rows: 55px;
-  top: 5%;
-  left: 35%;
-  align-items: center;
-  margin-top: 15px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.botao {
-  background-color: #242526;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  vertical-align: middle;
-  font-size: 20px;
-  text-align: center;
-  width: 80%;
-  padding: 5px;
-  margin: auto;
-}
-
-.botao:hover {
-  color: whitesmoke;
-  background-color: #695cfe;
-  border-radius: 5px;
-  transition: var(--tran-03);
-}
-
-/* card central*/
-
-.card-div {
-  margin-top: 30px;
-}
-
-.container {
-  max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 5%;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-.bem-vindo {
-  font-size: 40px;
-  margin-top: 0;
-  margin-bottom: 20px;
-  text-align: center;
-  line-height: auto;
-  padding: 10px;
-}
-
-table {
-  width: 50%;
-  margin-top: 5%;
-  margin-left: 25%;
-  border-collapse: collapse;
-}
-
-table th,
-table td {
-  padding: 10px 0;
-  border: 1px solid black;
-  border-left: none;
-  border-right: none;
-  text-align: center;
-}
-
-table th {
-  background-color: #95a5a6;
 }
