@@ -13,6 +13,7 @@ h5 {
   height: 13rem;
   margin: auto;
   text-align: center;
+  border: 2px solid var(--text-color);
   background-color: var(--sidebar-color);
 }
 

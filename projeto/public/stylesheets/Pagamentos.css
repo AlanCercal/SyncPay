@@ -9,6 +9,7 @@ h5 {
   display: grid;
   position: relative;
   border-radius: 10px;
+  border: 2px solid var(--text-color);
   width: 35rem;
   height: 10rem;
   margin: auto;
