@@ -1,9 +1,11 @@
 const { Sequelize } = require("sequelize");
 
+//"sys",
+// "Erudhir",
+// "fxqR4fsqzc*6eTtZp83F6i%6Pi5N5Gt9MPLVNg&t",
+
 const sequelize = new Sequelize(
-  "sys",
-  "Erudhir",
-  "fxqR4fsqzc*6eTtZp83F6i%6Pi5N5Gt9MPLVNg&t",
+ "sys","root" ,"catolica",
   {
     host: "localhost",
     dialect: "mysql",
