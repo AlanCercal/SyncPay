@@ -4,9 +4,12 @@
     <div class="card-saldo">
       <h5 class="card-titulo">R$1.893,44</h5>
       <div class="card-botoes">
-        <button class="botao-saldo">
-          <i class="bi bi-cash-coin"></i>Adicionar
-          dinheiro
+        <button
+          class="botao-saldo adi"
+          data-toggle="modal"
+          data-target="#myModal"
+        >
+          <i class="bi bi-cash-coin"></i>Adicionar dinheiro
         </button>
         <button class="botao-saldo">
           <i class="bi bi-arrow-left-right"></i>Transferir
@@ -56,3 +59,34 @@
     </ul>
   </div>
 </div>
+
+<div class="modal-container" id="close-modal">
+  <div class="modal-adiDinheiro">
+    <h3 class="subtitulo">Titulo</h3>
+    <button class="fechar">X</button>
+    <form action="">
+      <input
+        type="number"
+        id="qtdAdicional"
+        min="0"
+        max="999999"
+        placeholder="Valor para adicionar..."
+      />
+      <br />
+      <input
+        type="button"
+        class="btn btn-primary adicionar"
+        value="ADICIONAR"
+      />
+    </form>
+  </div>
+</div>
+
+<script>
+  let modal = document.querySelector("#close-modal"); let adiBotao =
+  document.querySelector(".adi"); let fechar =
+  document.querySelector(".fechar"); fechar.addEventListener("click", () =>{
+  modal.id = "close-modal";} ); adiBotao.addEventListener("click", () => {
+  if(modal.id === "close-modal") modal.id = "modal-container"; else modal.id =
+  "close-modal"; });
+</script>

@@ -78,7 +78,7 @@ table th {
   justify-content: center;
   border: none;
   border-radius: 5px;
-  background-color: #242526;
-  color: white;
+  background-color: var(--text-color);
+  color: var(--sidebar-color);
   font-size: 100%;
 }
