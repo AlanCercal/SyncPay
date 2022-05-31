@@ -11,7 +11,7 @@
         >
           <i class="bi bi-cash-coin"></i>Adicionar dinheiro
         </button>
-        <button class="botao-saldo">
+        <button class="botao-saldo trans">
           <i class="bi bi-arrow-left-right"></i>Transferir
         </button>
       </div>
@@ -60,9 +60,9 @@
   </div>
 </div>
 
-<div class="modal-container" id="close-modal">
+<div class="modal-container" style="display: none;">
   <div class="modal-adiDinheiro">
-    <h3 class="subtitulo">Titulo</h3>
+    <h3 class="subtitulo">ADICIONAR</h3>
     <button class="fechar">X</button>
     <form action="">
       <input
@@ -83,10 +83,15 @@
 </div>
 
 <script>
-  let modal = document.querySelector("#close-modal"); let adiBotao =
-  document.querySelector(".adi"); let fechar =
-  document.querySelector(".fechar"); fechar.addEventListener("click", () =>{
-  modal.id = "close-modal";} ); adiBotao.addEventListener("click", () => {
-  if(modal.id === "close-modal") modal.id = "modal-container"; else modal.id =
-  "close-modal"; });
+  let modal = document.querySelector(".modal-container"); let adiBotao =
+  document.querySelector(".adi"); let transBotao =
+  document.querySelector(".trans"); let fechar =
+  document.querySelector(".fechar"); let subtitulo =
+  document.querySelector(".subtitulo"); fechar.addEventListener("click", () =>{
+  modal.style.display = "none";} );adiBotao.addEventListener("click", () =>
+  {if(modal.style.display == "none"){ subtitulo.innerHTML = "ADICIONAR";
+  modal.style.display = "flex";} else modal.style.display = "none";});
+  transBotao.addEventListener("click", () =>{if(modal.style.display == "none"){
+  subtitulo.innerHTML = "TRANSFERÊNCIA"; modal.style.display = "flex";} else
+  modal.style.display = "none";});
 </script>
