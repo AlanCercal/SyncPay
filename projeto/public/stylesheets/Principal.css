@@ -1,8 +1,9 @@
-/* card de saldo */
-
-.bem-vindo, h5{
+.bem-vindo,
+h5 {
   color: var(--text-color);
 }
+
+/* card de saldo */
 
 .card-saldo {
   display: grid;
@@ -12,7 +13,7 @@
   height: 13rem;
   margin: auto;
   text-align: center;
-  background-color: var(--primary-color-light);
+  background-color: var(--sidebar-color);
 }
 
 .card-titulo {
@@ -35,9 +36,9 @@
 .botao-saldo {
   display: inline-block;
   color: var(--text-color);
-  background-color: var(--primary-color-light);
+  background-color: var(--sidebar-color);
   border-color: var(--text-color);
-  border-width: 1px;
+  border-width: 2px;
   border-radius: 5px;
   vertical-align: middle;
   font-size: 20px;
@@ -53,7 +54,7 @@
 }
 
 .botao-saldo:hover {
-  color: whitesmoke;
+  color: var(--primary-color-light);
   background-color: var(--primary-color);
   border-radius: 5px;
   transition: var(--tran-03);

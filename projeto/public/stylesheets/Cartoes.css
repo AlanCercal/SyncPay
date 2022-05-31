@@ -14,9 +14,6 @@ h5 {
   justify-content: center;
 }
 
-.container button {
-}
-
 .bem-vindo {
   font-size: 40px;
   margin-top: 0;
@@ -27,6 +24,7 @@ h5 {
 }
 
 table {
+  color: var(--text-color);
   min-width: 600px;
   max-width: 600px;
   border-collapse: collapse;
@@ -54,23 +52,23 @@ table th {
 /* botao de adicionar cartao */
 
 .botao-cartao {
-  margin-top: 3%;
+  margin-top: 2rem;
   width: 210px;
   height: 48px;
-  border: none;
+  color: var(--text-color);
+  background-color: var(--sidebar-color);
+  border-width: 2px;
+  border-color: var(--text-color);
   border-radius: 5px;
-  background-color: #242526;
-  color: white;
   font-size: 100%;
 }
 
 .botao-cartao:hover,
 .botao-edit:hover {
-  color: whitesmoke;
-  background-color: #695cfe;
+  color: var(--primary-color-light);
+  background-color: var(--primary-color);
   transition: var(--tran-03);
 }
-
 
 /* botão de editar o cartão */
 
