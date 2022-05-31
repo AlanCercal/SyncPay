@@ -3,6 +3,13 @@ h5 {
   color: var(--text-color);
 }
 
+.total{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: auto;
+}
+
 /* card de saldo */
 
 .card-saldo {
@@ -64,12 +71,9 @@ h5 {
 /* card central*/
 
 .container {
-  max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 5%;
-  padding-left: 10px;
-  padding-right: 10px;
+  min-width: 700px;
+  margin-top: 2rem;
+  color: var(--text-color);
 }
 
 .bem-vindo {
@@ -82,24 +86,26 @@ h5 {
 }
 
 .responsive-table li {
-  border-radius: 3px;
+  border-radius: 2px;
   padding: 5px;
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
+  border: 1px solid var(--text-color);
 }
 
 .responsive-table .table-header {
-  background-color: #95a5a6;
+  background-color: var(--sidebar-color);
   padding: 20px;
   font-size: 15px;
+  border-radius: 5px;
+  border: 2px solid var(--text-color);
   text-transform: uppercase;
   letter-spacing: 0.03em;
 }
 
 .responsive-table .table-row {
-  background-color: #ffffff;
-
+  background-color: var(--sidebar-color);
   box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
 }
 
@@ -123,7 +129,6 @@ h5 {
 }
 
 .col-list::before {
-  color: #6c7a89;
   padding-right: 10px;
   /* content: attr(data-label); */
   flex-basis: 50%;
