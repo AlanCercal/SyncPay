@@ -23,7 +23,64 @@ h5 {
   padding: 10px;
 }
 
-table {
+.container-table {
+  min-width: 700px;
+  max-width: 60vw;
+  margin-top: 2rem;
+  color: var(--text-color);
+}
+
+.responsive-table li {
+  border-radius: 2px;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  border: 1px solid var(--text-color);
+}
+
+.responsive-table .table-header {
+  background-color: var(--sidebar-color);
+  padding: 20px;
+  font-size: 15px;
+  border-radius: 5px;
+  border: 2px solid var(--text-color);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.responsive-table .table-row {
+  padding-right: 22px;
+  background-color: var(--sidebar-color);
+  box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
+}
+
+.responsive-table .col-1 {
+  flex-basis: 2%;
+}
+.responsive-table .col-2 {
+  flex-basis: 49%;
+  align-items: center;
+  justify-content: center;
+}
+
+.responsive-table .col-3 {
+  flex-basis: 49%;
+  align-items: center;
+  justify-content: center;
+}
+
+.col-list {
+  flex-basis: 100%;
+  display: flex;
+  padding: 0;
+}
+
+.table-header {
+  display: none;
+}
+
+/* table {
   color: var(--text-color);
   min-width: 600px;
   max-width: 600px;
@@ -47,7 +104,7 @@ table td:first-child {
 
 table th {
   background-color: var(--sidebar-color);
-}
+} */
 
 /* botao de adicionar cartao */
 

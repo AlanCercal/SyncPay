@@ -12,10 +12,40 @@
     <button class="botao">SAQUE</button>
   </div>
 
-  <table>
+  <div class="container-table">
+    <ul class="responsive-table">
+      <li class="table-header">
+        <div class="col-list col-1 head"><b>ID</b></div>
+        <div class="col-list col-2 head"><b>TRANSAÇÃO</b></div>
+        <div class="col-list col-3 head"><b>VALOR</b></div>
+        <div class="col-list col-4 head"><b>HORÁRIO</b></div>
+      </li>
+      <li class="table-row">
+        <div class="col-list col-1" data-label="Id">42235</div>
+        <div class="col-list col-2" data-label="transacao">John Doe</div>
+        <div class="col-list col-3" data-label="valor-trans">$350</div>
+        <div class="col-list col-4" data-label="horario">16:34:43</div>
+      </li>
+      <li class="table-row">
+        <div class="col-list col-1" data-label="Id">42235</div>
+        <div class="col-list col-2" data-label="transacao">John Doe</div>
+        <div class="col-list col-3" data-label="valor-trans">$350</div>
+        <div class="col-list col-4" data-label="horario">16:34:43</div>
+      </li>
+      <li class="table-row">
+        <div class="col-list col-1" data-label="Id">42235</div>
+        <div class="col-list col-2" data-label="transacao">John Doe</div>
+        <div class="col-list col-3" data-label="valor-trans">$350</div>
+        <div class="col-list col-4" data-label="horario">16:34:43</div>
+      </li>
+     
+    </ul>
+  </div>
+
+  {{! <table>
     <thead>
       <th>id</th>
-      <th>pessoas</th>
+      <th>transação</th>
       <th>valor</th>
       <th>horario</th>
     </thead>
@@ -45,5 +75,5 @@
         <td data-label="horario">16:34:43</td>
       </tr>
     </tbody>
-  </table>
+  </table> }}
 </div>

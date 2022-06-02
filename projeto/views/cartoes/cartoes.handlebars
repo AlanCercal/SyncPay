@@ -1,6 +1,24 @@
 <div class="container">
   <h2 class="bem-vindo">CARTEIRA</h2>
-  <table>
+
+  <div class="container-table">
+    <ul class="responsive-table">
+      <li class="table-header">
+        <div class="col-list col-1 head"></div>
+        <div class="col-list col-2 head"><b>LISTA DE CARTÕES</b></div>
+        <div class="col-list col-3 head"><b>SALDO DO CARTÃO</b></div>
+      </li>
+      <li class="table-row">
+        <div class="col-list col-1" data-label="Customer Name"><button
+            class="botao-edit"
+          ><i class="bi bi-gear"></i></button></div>
+        <div class="col-list col-2" data-label="Customer Name">John Doe</div>
+        <div class="col-list col-3" data-label="Amount">$350</div>
+      </li>
+    </ul>
+  </div>
+
+  {{! <table>
     <thead>
       <th></th>
       <th>lista de cartões</th>
@@ -15,7 +33,7 @@
         <td data-label="saldo">12020</td>
       </tr>
     </tbody>
-  </table>
+  </table> }}
 
   <button class="botao-cartao">
     <i class="bi bi-plus"></i>ADICIONAR CARTÃO</button>

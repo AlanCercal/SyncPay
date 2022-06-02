@@ -83,7 +83,66 @@ h5 {
   padding: 10px;
 }
 
-table {
+.container-table {
+  min-width: 700px;
+  max-width: 60vw;
+  margin-top: 2rem;
+  color: var(--text-color);
+}
+
+.responsive-table li {
+  border-radius: 2px;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  border: 1px solid var(--text-color);
+}
+
+.responsive-table .table-header {
+  background-color: var(--sidebar-color);
+  padding: 20px;
+  font-size: 15px;
+  border-radius: 5px;
+  border: 2px solid var(--text-color);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.responsive-table .table-row {
+  padding-right: 22px;
+  background-color: var(--sidebar-color);
+  box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
+}
+
+.responsive-table .col-1 {
+  flex-basis: 10%;
+}
+.responsive-table .col-2 {
+  flex-basis: 40%;
+  justify-content: center;
+}
+
+.responsive-table .col-3 {
+  flex-basis: 30%;
+  justify-content: center;
+}
+.responsive-table .col-4 {
+  flex-basis: 20%;
+  justify-content: right;
+}
+
+.col-list {
+  flex-basis: 100%;
+  display: flex;
+  padding: 0;
+}
+
+.table-header {
+  display: none;
+}
+
+/* table {
   color: var(--text-color);
   margin-top: 2rem;
   min-width: 600px;
@@ -102,4 +161,4 @@ table td {
 
 table th {
   background-color: var(--sidebar-color);
-}
+} */
