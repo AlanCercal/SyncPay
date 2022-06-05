@@ -1,0 +1,20 @@
+<h1>Editando {{usuario.nome}}</h1>
+<form action="/usuarios/edit" method="POST">
+  <input type="hidden" name="id" value={{usuario.id}}>
+    <label for="nome">Nome:</label>
+    <input type="text" name="nome"value="{{usuario.nome}}">
+    <label for="cpf">CPF:</label>
+    <input type="text" name="cpf"value="{{usuario.cpf}}">
+    <label for="email">E-Mail</label>:</label>
+    <input type="text" name="email"value="{{usuario.email}}">
+    <label for="senha">Senha:</label>
+    <input type="text" name="senha"value="{{usuario.senha}}">
+  <input type="submit" value="Editar">
+</form>
+
+
+
+
+
+
+

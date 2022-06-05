@@ -2,17 +2,17 @@ const { DataTypes } = require('sequelize')
 
 const db = require('../db/conn')
 
-const Aluno = db.define('Aluno', {
+const Cartoes = db.define('Cartoes', {
   nome: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  matricula: {
-    type: DataTypes.STRING,
+  valorTotal: {
+    type: DataTypes.FLOAT,
   },
   status: {
     type: DataTypes.BOOLEAN,
   },
 })
 
-module.exports = Aluno
+module.exports = Cartoes

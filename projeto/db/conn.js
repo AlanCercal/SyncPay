@@ -1,10 +1,11 @@
 const { Sequelize } = require("sequelize");
 
-//"sys","root" ,"catolica",
+//"sys",
+// "Erudhir",
+// "fxqR4fsqzc*6eTtZp83F6i%6Pi5N5Gt9MPLVNg&t",
+
 const sequelize = new Sequelize(
-  "sys",
-  "Erudhir",
-  "fxqR4fsqzc*6eTtZp83F6i%6Pi5N5Gt9MPLVNg&t",
+ "mydb","root","Bolinha@167",
   {
     host: "localhost",
     dialect: "mysql",

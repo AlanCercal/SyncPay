@@ -5,9 +5,9 @@ const app = express();
 
 const conn = require("./db/conn");
 
-const Aluno = require("./models/Aluno");
+const Usuario = require("./models/Usuario");
 
-const alunoRoutes = require("./routes/alunosRoutes");
+const usuarioRoutes = require("./routes/usuariosRoutes");
 const principalRoutes = require("./routes/principal");
 const loginRoutes = require("./routes/login");
 const cartoesRoutes = require("./routes/cartoes");
@@ -28,7 +28,7 @@ app.use(express.static("public"));
 
 //exphbs.registerPartials(__dirname + "/views/partials");
 
-app.use("/alunos", alunoRoutes);
+app.use("/usuarios", usuarioRoutes);
 app.use("/", principalRoutes);
 app.use("/login", loginRoutes);
 app.use("/cartoes", cartoesRoutes);

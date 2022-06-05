@@ -1,0 +1,32 @@
+<h1>Usuarios</h1>
+  {{#if emptyUsuarios}}
+    <p>Sem usuarios cadastrados</p>
+  {{/if}}
+  {{#each usuarios}}
+      <b>{{this.nome}}</b> - 
+        <form action="/usuarios/updatestatus" method="POST" style="display: inline;">
+          <input type="hidden" name="id" value={{this.id}}>
+          <input type="hidden" name="status" value={{this.status}}>
+          <button type="submit">
+            {{#if this.status}}
+              desabilitar
+            {{else}}
+              habilitar
+            {{/if}}
+          </button>
+        </form>
+        
+        {{!-- <form action="/usuarios/edit/{{this.id}}" style="display: inline;">
+            <input type="submit" value="editar" />
+        </form> --}}
+
+        <a href="/usuarios/edit/{{this.id}}">editar</a>
+
+        <form action="/usuarios/remove" method="POST" style="display: inline;">
+          <input type="hidden" name="id" value={{this.id}}>
+          <button type="submit">
+            excluir
+          </button>
+        </form>
+    <hr>
+  {{/each}}
