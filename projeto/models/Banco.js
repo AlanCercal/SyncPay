@@ -39,12 +39,6 @@ const Carteira = db.define('Carteira', {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  id_usuario: {
-    type: DataTypes.INTEGER,
-  },
-  id_cartoes: {
-    type: DataTypes.INTEGER,
-  },
   status: {
     type: DataTypes.BOOLEAN,
   },
@@ -62,5 +56,24 @@ const Operacoes = db.define('Operacoes', {
     type: DataTypes.BOOLEAN,
   },
 })
+
+
+Carteira.belongsTo(Usuario, {
+  foreignKey: "id_usuario",
+  as: "usuarios",
+});
+
+// Carteira.hasMany(Cartoes, { as: "cartoes" });
+Cartoes.belongsTo(Carteira, {
+  foreignKey: "id_carteira",
+  as: "carteira",
+});
+
+
+// Carteira.hasMany(Operacoes, { as: "operacoes" });
+Operacoes.belongsTo(Carteira, {
+  foreignKey: "id_carteira",
+  as: "carteira",
+});
 
 module.exports = Usuario, Cartoes, Carteira, Operacoes
