@@ -1,4 +1,4 @@
-const Operacao = require('../models/Operacao')
+const Operacao = require('../models/Banco')
 
 module.exports = class OperacaoController {
   static createOperacao(req, res) {

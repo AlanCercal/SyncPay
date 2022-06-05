@@ -1,4 +1,4 @@
-const Cartao = require('../models/Cartoes')
+const Cartao = require('../models/Banco')
 
 module.exports = class CartaoController {
   static createCartao(req, res) {

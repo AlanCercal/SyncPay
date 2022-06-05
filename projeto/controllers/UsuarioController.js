@@ -1,4 +1,4 @@
-const Usuario = require('../models/Usuario')
+const Usuario = require('../models/Banco')
 
 module.exports = class UsuarioController {
   static createUsuario(req, res) {

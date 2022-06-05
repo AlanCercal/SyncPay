@@ -5,7 +5,7 @@ const app = express();
 
 const conn = require("./db/conn");
 
-const Usuario = require("./models/Usuario");
+const Usuario = require("./models/Banco");
 
 const usuarioRoutes = require("./routes/usuariosRoutes");
 const principalRoutes = require("./routes/principal");

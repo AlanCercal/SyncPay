@@ -1,4 +1,4 @@
-const Carteira = require('../models/Carteira')
+const Carteira = require('../models/Banco')
 
 module.exports = class CarteiraController {
   static createCarteira(req, res) {
