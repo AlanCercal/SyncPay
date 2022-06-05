@@ -63,7 +63,7 @@ Carteira.belongsTo(Usuario, {
   as: "usuarios",
 });
 
-// Carteira.hasMany(Cartoes, { as: "cartoes" });
+// Carteira.hasMany(Cartoes, { as: "cartoes" }); //É a mesma coisa que abaixo, porém o belongs pode definir o nome da variavel
 Cartoes.belongsTo(Carteira, {
   foreignKey: "id_carteira",
   as: "carteira",
