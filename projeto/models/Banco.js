@@ -73,5 +73,6 @@ Operacoes.belongsTo(Carteira, {
   foreignKey: "id_carteira",
   as: "carteira",
 });
+
 const banco = [Usuario, Cartoes, Carteira, Operacoes];
 module.exports = banco;

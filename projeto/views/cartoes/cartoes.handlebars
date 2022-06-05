@@ -10,16 +10,13 @@
       </li>
       {{#each cartoes}}
         <li class="table-row">
-          <div class="col-list col-1" data-label="Customer Name"><button
+          <div class="col-list col-1" data-label="botoes"><button
               class="botao-edit"
             ><i class="bi bi-gear"></i></button></div>
-          <div
-            class="col-list col-2"
-            data-label="Customer Name"
-          >{{this.nome}}</div>
+          <div class="col-list col-2" data-label="nome">{{this.nome}}</div>
           <div
             class="col-list col-3"
-            data-label="Amount"
+            data-label="saldo"
           >{{this.valorTotal}}</div>
         </li>
       {{/each}}
