@@ -1,8 +1,8 @@
-const { DataTypes } = require('sequelize')
+const { DataTypes } = require("sequelize");
 
-const db = require('../db/conn')
+const db = require("../db/conn");
 
-const Usuario = db.define('Usuario', {
+const Usuario = db.define("Usuario", {
   nome: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -19,9 +19,9 @@ const Usuario = db.define('Usuario', {
   status: {
     type: DataTypes.BOOLEAN,
   },
-})
+});
 
-const Cartoes = db.define('Cartoes', {
+const Cartoes = db.define("Cartoes", {
   nome: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -32,9 +32,9 @@ const Cartoes = db.define('Cartoes', {
   status: {
     type: DataTypes.BOOLEAN,
   },
-})
+});
 
-const Carteira = db.define('Carteira', {
+const Carteira = db.define("Carteira", {
   nome: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -42,9 +42,9 @@ const Carteira = db.define('Carteira', {
   status: {
     type: DataTypes.BOOLEAN,
   },
-})
+});
 
-const Operacoes = db.define('Operacoes', {
+const Operacoes = db.define("Operacoes", {
   descricao: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -55,8 +55,7 @@ const Operacoes = db.define('Operacoes', {
   status: {
     type: DataTypes.BOOLEAN,
   },
-})
-
+});
 
 Carteira.belongsTo(Usuario, {
   foreignKey: "id_usuario",
@@ -69,11 +68,10 @@ Cartoes.belongsTo(Carteira, {
   as: "carteira",
 });
 
-
 // Carteira.hasMany(Operacoes, { as: "operacoes" });
 Operacoes.belongsTo(Carteira, {
   foreignKey: "id_carteira",
   as: "carteira",
 });
-
-module.exports = Usuario, Cartoes, Carteira, Operacoes
+const banco = [Usuario, Cartoes, Carteira, Operacoes];
+module.exports = banco;
