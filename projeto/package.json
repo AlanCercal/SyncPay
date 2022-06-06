@@ -10,8 +10,10 @@
   "keywords": [],
   "license": "SIC",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.18.1",
+    "express-generator": "^4.16.1",
     "express-handlebars": "^5.3.3",
+    "handlebars": "^4.7.7",
     "mysql2": "^2.3.0",
     "nodemon": "^2.0.12",
     "sequelize": "^6.6.5"

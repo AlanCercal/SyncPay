@@ -10,14 +10,21 @@
       </li>
       {{#each cartoes}}
         <li class="table-row">
-          <div class="col-list col-1" data-label="botoes"><button
-              class="botao-edit"
-            ><i class="bi bi-gear"></i></button></div>
+          <div class="col-list col-1 botao-saldo edit" data-toggle="modal"
+          data-target="#myModal">
+          <button class="botao-edit"><i class="bi bi-gear"></i></button> 
+          </div>
           <div class="col-list col-2" data-label="nome">{{this.nome}}</div>
           <div
             class="col-list col-3"
             data-label="saldo"
           >{{this.valorTotal}}</div>
+          <div>
+          <form action="/cartoes/remove" method="POST" style="display: inline;">
+          <input type="hidden" name="id" value={{this.id}}>
+            <button class="botao-remove"><i class="bi bi-trash3"></i></button> 
+          </form>
+          </div>
         </li>
       {{/each}}
     </ul>
@@ -40,6 +47,37 @@
     </tbody>
   </table> }}
 
-  <button class="botao-cartao">
+  <button class="botao-cartao" data-toggle="modal" data-target="#myModal">
     <i class="bi bi-plus"></i>ADICIONAR CARTÃO</button>
 </div>
+
+<div class="modal-container" style="display: none;">
+  <div class="modal-adicartao">
+    <h3 class="subtitulo">EDITAR</h3>
+    <button class="fechar">X</button>
+    <input type="hidden" name="id" value={{this.id}}>
+    <form action="/cartoes/edit{{this.id}}" method="POST">
+      <input type="text" name="nome" value={{this.nome}}>
+      <br />
+      <input
+        type="submit"
+        class="btn btn-primary adicionar"
+        value="SALVAR"
+      />
+    </form>
+  </div>
+</div>
+
+<script>
+  let modal = document.querySelector(".modal-container"); let editBotao =
+  document.querySelector(".edit"); let transBotao =
+  document.querySelector(".trans"); let fechar =
+  document.querySelector(".fechar"); let subtitulo =
+  document.querySelector(".subtitulo"); fechar.addEventListener("click", () =>{
+  modal.style.display = "none";} );editBotao.addEventListener("click", () =>
+  {if(modal.style.display == "none"){ subtitulo.innerHTML = "EDITAR";
+  modal.style.display = "flex";} else modal.style.display = "none";});
+  transBotao.addEventListener("click", () =>{if(modal.style.display == "none"){
+  subtitulo.innerHTML = "TRANSFERÊNCIA"; modal.style.display = "flex";} else
+  modal.style.display = "none";});
+</script>
