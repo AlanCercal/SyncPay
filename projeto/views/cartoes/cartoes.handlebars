@@ -10,20 +10,50 @@
       </li>
       {{#each cartoes}}
         <li class="table-row">
-          <div class="col-list col-1 botao-saldo edit" data-toggle="modal"
-          data-target="#myModal">
-          <button class="botao-edit"><i class="bi bi-gear"></i></button> 
+          <div
+            class="col-list col-1 botao-saldo edit"
+            data-toggle="modal"
+            data-target="#myModal"
+          >
+            <button class="botao-edit"><i class="bi bi-gear"></i></button>
           </div>
           <div class="col-list col-2" data-label="nome">{{this.nome}}</div>
           <div
             class="col-list col-3"
             data-label="saldo"
           >{{this.valorTotal}}</div>
+
+          <div class="modal-container" style="display: none;">
+            <div class="modal-adicartao">
+              <h3 class="subtitulo">EDITAR</h3>
+              <button class="fechar">X</button>
+              <input type="hidden" name="id" value={{this.id}} />
+              <form action="/cartoes/edit/{{this.id}}" method="GET">
+                <input type="text" name="nome" value={{this.nome}} />
+                <input
+                  type="number"
+                  name="valorTotal"
+                  value={{this.valorTotal}}
+                />
+                <br />
+                <input
+                  type="submit"
+                  class="btn btn-primary adicionar"
+                  value="SALVAR"
+                />
+              </form>
+            </div>
+          </div>
+
           <div>
-          <form action="/cartoes/remove" method="POST" style="display: inline;">
-          <input type="hidden" name="id" value={{this.id}}>
-            <button class="botao-remove"><i class="bi bi-trash3"></i></button> 
-          </form>
+            <form
+              action="/cartoes/remove"
+              method="POST"
+              style="display: inline;"
+            >
+              <input type="hidden" name="id" value={{this.id}} />
+              <button class="botao-remove"><i class="bi bi-trash3"></i></button>
+            </form>
           </div>
         </li>
       {{/each}}
@@ -49,23 +79,6 @@
 
   <button class="botao-cartao" data-toggle="modal" data-target="#myModal">
     <i class="bi bi-plus"></i>ADICIONAR CARTÃO</button>
-</div>
-
-<div class="modal-container" style="display: none;">
-  <div class="modal-adicartao">
-    <h3 class="subtitulo">EDITAR</h3>
-    <button class="fechar">X</button>
-    <input type="hidden" name="id" value={{this.id}}>
-    <form action="/cartoes/edit{{this.id}}" method="POST">
-      <input type="text" name="nome" value={{this.nome}}>
-      <br />
-      <input
-        type="submit"
-        class="btn btn-primary adicionar"
-        value="SALVAR"
-      />
-    </form>
-  </div>
 </div>
 
 <script>

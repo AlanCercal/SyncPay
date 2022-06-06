@@ -2,7 +2,7 @@ const banco = require("../models/Banco");
 const carteira = banco[2];
 const Cartao = banco[1];
 
-console.log("\n\n\n", Cartao, "\n\n\n");
+//console.log("\n\n\n", Cartao, "\n\n\n");// para testar os dados
 
 module.exports = class CartaoController {
   static createCartao(req, res) {
@@ -49,17 +49,28 @@ module.exports = class CartaoController {
 
   static updateCartao(req, res) {
     const id = req.params.id;
-
+    console.log("\n\n\nentrou aqui - " + id + "\n\n\n\n");
     Cartao.findOne({ where: { id: id }, raw: true })
       .then((data) => {
-        res.render("cartoes/edit", { cartao: data });
+        console.log(data);
+
+
+        const cartao = {
+          nome: req.query.nome,
+          valorTotal: req.query.valorTotal,
+        };
+    
+        Cartao.update(cartao, { where: { id: id } })
+          .then(res.redirect("/cartoes"))
+          .catch((err) => console.log());
+        //res.render("cartoes/edit", { cartao: data });
       })
       .catch((err) => console.log());
   }
 
   static updateCartaoPost(req, res) {
     const id = req.body.id;
-
+    console.log("\n\n\nPOST - " + id + "\n\n\n\n");
     const cartao = {
       nome: req.body.nome,
       valorTotal: req.body.valorTotal,
