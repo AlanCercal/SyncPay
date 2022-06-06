@@ -146,7 +146,7 @@ table th {
   font-size: 100%;
 }
 
-.botao-remove{
+.botao-remove {
   padding: 5px;
   align-items: center;
   justify-content: center;
@@ -159,10 +159,6 @@ table th {
   font-size: 100%;
 }
 /* modal */
-
-#close-modal {
-  display: none;
-}
 
 .modal-container {
   width: 100vw;
@@ -178,6 +174,10 @@ table th {
   /* z-index: 2000; para garantir que o modal esteja acima de qualquer elemento */
 }
 
+.subtitulo {
+  margin-bottom: 25px;
+}
+
 .modal-edit {
   background-color: var(--sidebar-color);
   width: 45%;
@@ -190,10 +190,6 @@ table th {
   flex-direction: column;
   align-items: center;
   font-size: 2rem;
-}
-
-.subtitulo {
-  margin-bottom: 2rem;
 }
 
 .modal-edit form {
@@ -226,10 +222,6 @@ table th {
   font-size: 2rem;
 }
 
-.subtitulo {
-  margin-bottom: 2rem;
-}
-
 .modal-remove form {
   width: 75%;
   display: flex;
@@ -258,10 +250,6 @@ table th {
   flex-direction: column;
   align-items: center;
   font-size: 2rem;
-}
-
-.subtitulo {
-  margin-bottom: 2rem;
 }
 
 .modal-adicartao form {
