@@ -11,9 +11,10 @@ module.exports = class CartaoController {
 
   static createCartaoSave(req, res) {
     const cartao = {
-      nome: req.body.nome,
-      valorTotal: req.body.valorTotal,
+      nome: req.body.cartaoNome,
+      valorTotal: req.body.cartaoSaldo,
       status: false,
+      id_carteira: "1", // mudar quando tiver o login funcionanado
     };
 
     Cartao.create(cartao)
@@ -54,12 +55,11 @@ module.exports = class CartaoController {
       .then((data) => {
         console.log(data);
 
-
         const cartao = {
           nome: req.query.nome,
           valorTotal: req.query.valorTotal,
         };
-    
+
         Cartao.update(cartao, { where: { id: id } })
           .then(res.redirect("/cartoes"))
           .catch((err) => console.log());

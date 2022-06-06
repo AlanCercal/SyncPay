@@ -68,29 +68,44 @@
     </thead>
     <tbody>
       <tr>
-        <td data-label=""><button class="botao-edit"><i
-              class="bi bi-gear"
-            ></i></button></td>
+        <td data-label=""><button class="botao-edit"><i class="bi bi-gear"></i></button></td>
         <td data-label="lista de catões">Lorem ipsum dolor.</td>
         <td data-label="saldo">12020</td>
       </tr>
     </tbody>
   </table> }}
 
-  <button class="botao-cartao" data-toggle="modal" data-target="#myModal">
+  <div class="modal-container" id="modal-adicionar" style="display: none;">
+    <div class="modal-adicartao">
+      <h3 class="subtitulo">ADICIONAR</h3>
+      <button class="fechar">X</button>
+      <form action="/cartoes/add" method="POST">
+        <label for="cartao" style="font-size: 15px;"> nome do cartão:</label>
+        <input type="text" name="cartaoNome" value="" />
+        <label for="saldo" style="font-size: 15px;"> saldo do cartão:</label>
+        <input type="number" name="cartaoSaldo" value="" />
+        <br />
+        <input type="submit" class="btn btn-primary adicionar" value="SALVAR" />
+      </form>
+    </div>
+  </div>
+  <button class="botao-cartao">
     <i class="bi bi-plus"></i>ADICIONAR CARTÃO</button>
 </div>
 
 <script>
-  let modal = document.querySelector(".modal-container"); let editBotao =
-  document.querySelector(".edit"); let transBotao =
-  document.querySelector(".trans"); let fechar =
-  document.querySelector(".fechar"); let subtitulo =
-  document.querySelector(".subtitulo"); fechar.addEventListener("click", () =>{
-  modal.style.display = "none";} );editBotao.addEventListener("click", () =>
-  {if(modal.style.display == "none"){ subtitulo.innerHTML = "EDITAR";
-  modal.style.display = "flex";} else modal.style.display = "none";});
-  transBotao.addEventListener("click", () =>{if(modal.style.display == "none"){
-  subtitulo.innerHTML = "TRANSFERÊNCIA"; modal.style.display = "flex";} else
-  modal.style.display = "none";});
+  let modals = document.querySelectorAll(".modal-container"); let editBotao =
+  document.querySelector(".edit"); let modalAdicionar =
+  document.querySelector("#modal-adicionar"); let fechar =
+  document.querySelectorAll(".fechar"); let subtitulo =
+  document.querySelector(".subtitulo"); let adiciBotao =
+  document.querySelector(".botao-cartao"); console.log(modalAdicionar);
+  adiciBotao.addEventListener("click", () => { if (modalAdicionar.style.display
+  == "none") { modalAdicionar.style.display = "flex";} else {
+  modalAdicionar.style.display = "none"; } }); fechar.forEach((fecha) =>
+  {fecha.addEventListener("click", () => { modals.forEach((modal) =>
+  {modal.style.display = "none";})});}); editBotao.addEventListener("click",
+  ()=> { if (modal.style.display == "none") { subtitulo.innerHTML = "EDITAR";
+  modal.style.display = "flex"; } else {modal.style.display = "none";} });
+
 </script>
