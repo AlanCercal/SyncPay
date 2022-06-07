@@ -30,7 +30,7 @@ module.exports = class CartaoController {
         if (data.length === 0) {
           emptyCartoes = true;
         }
-        console.log(data, "\n\n\n");
+        //console.log(data, "\n\n\n");
         res.render("cartoes/cartoes", {
           cartoes: data,
           title: "SyncPay - Cartões",
@@ -50,10 +50,10 @@ module.exports = class CartaoController {
 
   static updateCartao(req, res) {
     const id = req.params.id;
-    console.log("\n\n\nentrou aqui - " + id + "\n\n\n\n");
+    //console.log("\n\n\nentrou aqui - " + id + "\n\n\n\n");
     Cartao.findOne({ where: { id: id }, raw: true })
       .then((data) => {
-        console.log(data);
+        //console.log(data);
 
         const cartao = {
           nome: req.query.nome,

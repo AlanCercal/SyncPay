@@ -20,60 +20,23 @@
         <div class="col-list col-3 head"><b>VALOR</b></div>
         <div class="col-list col-4 head"><b>HORÁRIO</b></div>
       </li>
-      <li class="table-row">
-        <div class="col-list col-1" data-label="Id">42235</div>
-        <div class="col-list col-2" data-label="transacao">John Doe</div>
-        <div class="col-list col-3" data-label="valor-trans">$350</div>
-        <div class="col-list col-4" data-label="horario">16:34:43</div>
-      </li>
-      <li class="table-row">
-        <div class="col-list col-1" data-label="Id">42235</div>
-        <div class="col-list col-2" data-label="transacao">John Doe</div>
-        <div class="col-list col-3" data-label="valor-trans">$350</div>
-        <div class="col-list col-4" data-label="horario">16:34:43</div>
-      </li>
-      <li class="table-row">
-        <div class="col-list col-1" data-label="Id">42235</div>
-        <div class="col-list col-2" data-label="transacao">John Doe</div>
-        <div class="col-list col-3" data-label="valor-trans">$350</div>
-        <div class="col-list col-4" data-label="horario">16:34:43</div>
-      </li>
-     
+      {{#each operacoes}}
+        <li class="table-row">
+          <div class="col-list col-1" data-label="Id">{{this.id}}</div>
+          <div
+            class="col-list col-2"
+            data-label="transacao"
+          >{{this.descricao}}</div>
+          <div
+            class="col-list col-3"
+            data-label="valor-trans"
+          >{{this.valor}}</div>
+          <div
+            class="col-list col-4"
+            data-label="horario"
+          >{{this.createdAt}}</div>
+        </li>
+      {{/each}}
     </ul>
   </div>
-
-  {{! <table>
-    <thead>
-      <th>id</th>
-      <th>transação</th>
-      <th>valor</th>
-      <th>horario</th>
-    </thead>
-    <tbody>
-      <tr>
-        <td data-label="id">1</td>
-        <td data-label="pessoas">Jorge</td>
-        <td data-label="valor">12300</td>
-        <td data-label="horario">16:34:43</td>
-      </tr>
-      <tr>
-        <td data-label="id">1</td>
-        <td data-label="pessoas">Jorge</td>
-        <td data-label="valor">12300</td>
-        <td data-label="horario">16:34:43</td>
-      </tr>
-      <tr>
-        <td data-label="id">1</td>
-        <td data-label="pessoas">Jorge</td>
-        <td data-label="valor">12300</td>
-        <td data-label="horario">16:34:43</td>
-      </tr>
-      <tr>
-        <td data-label="id">1</td>
-        <td data-label="pessoas">Jorge</td>
-        <td data-label="valor">12300</td>
-        <td data-label="horario">16:34:43</td>
-      </tr>
-    </tbody>
-  </table> }}
 </div>
