@@ -1,5 +1,6 @@
 const Banco = require("../models/Banco");
 const Operacao = Banco[3];
+const Cartao = Banco[1];
 
 module.exports = class OperacaoController {
   static createOperacao(req, res) {
@@ -20,6 +21,15 @@ module.exports = class OperacaoController {
   }
 
   static showOperacoes(req, res) {
+    let soma = 0;
+    Cartao.findAll({ raw: true, where: { id_carteira: "1" } })
+        .then((data) => {
+        
+        data.forEach(element => {
+           soma += element.valorTotal;
+        });
+
+      })
     Operacao.findAll({ raw: true, where: { id_carteira: "1" }, })
       .then((data) => {
         let emptyOperacoes = false;
@@ -27,7 +37,9 @@ module.exports = class OperacaoController {
         if (data.length === 0) {
           emptyOperacoes = true;
         }
+      
         res.render("pagamentos/pagamentos", {
+          soma:soma,
           operacoes: data,
           title: "SyncPay - Pagamentos",
           style: "stylesheets/Pagamentos.css",
