@@ -18,7 +18,9 @@ module.exports = class CartaoController {
     };
 
     Cartao.create(cartao)
-      .then(res.redirect("/cartoes"))
+      .then(() => {
+        res.redirect(301, "/cartoes");
+      })
       .catch((err) => console.log());
   }
 
@@ -30,7 +32,6 @@ module.exports = class CartaoController {
         if (data.length === 0) {
           emptyCartoes = true;
         }
-        //console.log(data, "\n\n\n");
         res.render("cartoes/cartoes", {
           cartoes: data,
           title: "SyncPay - Cartões",
@@ -44,7 +45,7 @@ module.exports = class CartaoController {
     const id = req.body.id;
 
     Cartao.destroy({ where: { id: id } })
-      .then(res.redirect("/cartoes"))
+      .then(res.redirect(301, "/cartoes"))
       .catch((err) => console.log());
   }
 
@@ -59,9 +60,9 @@ module.exports = class CartaoController {
           nome: req.query.nome,
           valorTotal: req.query.valorTotal,
         };
-
+        //console.log(cartao);
         Cartao.update(cartao, { where: { id: id } })
-          .then(res.redirect("/cartoes"))
+          .then(res.redirect(301, "/cartoes"))
           .catch((err) => console.log());
         //res.render("cartoes/edit", { cartao: data });
       })
@@ -69,16 +70,15 @@ module.exports = class CartaoController {
   }
 
   static updateCartaoPost(req, res) {
-    const id = req.body.id;
-    console.log("\n\n\nPOST - " + id + "\n\n\n\n");
-    const cartao = {
-      nome: req.body.nome,
-      valorTotal: req.body.valorTotal,
-    };
-
-    Cartao.update(cartao, { where: { id: id } })
-      .then(res.redirect("/cartoes"))
-      .catch((err) => console.log());
+    // const id = req.body.id;
+    // console.log("\n\n\nPOST - " + id + "\n\n\n\n");
+    // const cartao = {
+    //   nome: req.body.nome,
+    //   valorTotal: req.body.valorTotal,
+    // };
+    // Cartao.update(cartao, { where: { id: id } })
+    //   .then(res.redirect("/cartoes"))
+    //   .catch((err) => console.log());
   }
 
   static changeStatus(req, res) {
