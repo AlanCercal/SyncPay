@@ -41,12 +41,13 @@
     </ul>
   </div>
 </div>
-
+{{! //tempo.innerHTML = tempo.innerHTML.slice(0, tempo.innerHTML.indexOf("GMT")); }); }}
 <script>
   let valor = document.querySelectorAll(".table-row"); valor.forEach((val) =>{
-  let color = val.querySelector(".col-3");color.style.color = color.innerHTML >=0 ?
-  "#00FF11": "#FF0000";
-  let tempo = val.querySelector(".col-4");
-  tempo.innerHTML = tempo.innerHTML.slice(0, tempo.innerHTML.indexOf("GMT"));
+  let color = val.querySelector(".col-3");color.style.color = color.innerHTML
+  >=0 ? "#00FF11": "#FF0000"; let hor =val.querySelector(".col-4"); let tempo =
+  new Date(hor.innerHTML); let opcoes = {year: "numeric", month: "numeric", day:
+  "numeric", hour:"numeric", minute: "numeric", second: "numeric", hour12:
+  false}; hor.innerHTML = Intl.DateTimeFormat('pt-BR', opcoes).format(tempo);
   });
 </script>

@@ -84,7 +84,7 @@ h5 {
 }
 
 .container-table {
-  min-width: 700px;
+  min-width: 800px;
   max-width: 60vw;
   margin-top: 2rem;
   color: var(--text-color);
@@ -118,7 +118,7 @@ h5 {
 
 .responsive-table .col-1 {
   flex-basis: 10%;
-  justify-content: left;
+  justify-content: center;
 }
 .responsive-table .col-2 {
   flex-basis: 40%;
