@@ -13,13 +13,19 @@ const loginRoutes = require("./routes/login");
 const cartoesRoutes = require("./routes/cartoes");
 const pagamentosRoutes = require("./routes/pagamentos");
 const usersRoutes = require("./routes/users");
+//const passport = require("passport");
 
-app.engine("handlebars", exphbs( {
-  extname: 'handlebars', 
-  defaultLayout: 'main', 
-  layoutsDir: __dirname + '/views/layouts/',
-  partialsDir: __dirname + '/views/partials/'
-}));
+
+
+app.engine(
+  "handlebars",
+  exphbs({
+    extname: "handlebars",
+    defaultLayout: "main",
+    layoutsDir: __dirname + "/views/layouts/",
+    partialsDir: __dirname + "/views/partials/",
+  })
+);
 app.set("view engine", "handlebars");
 
 app.use(express.urlencoded({ extended: true }));
