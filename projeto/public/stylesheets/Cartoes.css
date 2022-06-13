@@ -178,22 +178,6 @@ table th {
   font-size: 100%;
 }
 
-.modal-edit {
-  background-color: var(--sidebar-color);
-  width: 25%;
-  height: 25%;
-  min-width: 300px;
-  min-height: 300px;
-  border: 4px solid var(--text-color);
-  border-radius: 10px;
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-}
-
 .modal-edit form {
   width: 100%;
   height: 80%;
@@ -254,12 +238,13 @@ table th {
   width: 75%;
 }
 
-.modal-adicartao {
+.modal-adicartao,
+.modal-edit {
   background-color: var(--sidebar-color);
-  width: 25%;
+  width: 20%;
   height: 25%;
   min-width: 300px;
-  min-height: 300px;
+  min-height: 380px;
   border: 4px solid var(--text-color);
   border-radius: 10px;
   display: flex;
@@ -307,8 +292,8 @@ table th {
   border-radius: 5px;
   margin-top: 2rem;
   margin-bottom: 2rem;
-  width: 30%;
-  height: 15%;
+  width: 145px;
+  height: 500px;
 }
 
 .fechar:hover,

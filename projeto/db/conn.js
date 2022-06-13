@@ -6,7 +6,7 @@ const { Sequelize } = require("sequelize");
 
 const sequelize = new Sequelize(
   //"mydb","root","senha",
-  "sys",
+  "syncpay",
   "Erudhir",
   "fxqR4fsqzc*6eTtZp83F6i%6Pi5N5Gt9MPLVNg&t",
   {

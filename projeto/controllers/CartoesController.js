@@ -13,6 +13,9 @@ module.exports = class CartaoController {
     const cartao = {
       nome: req.body.cartaoNome,
       valorTotal: req.body.cartaoSaldo,
+      numcartao: req.body.numcartao,
+      cvv: req.body.cvv,
+      validade: req.body.validade,
       status: false,
       id_carteira: "1", // mudar quando tiver o login funcionanado
     };
