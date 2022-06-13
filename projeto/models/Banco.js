@@ -1,4 +1,4 @@
-const { DataTypes } = require("sequelize");
+const { DataTypes, INTEGER } = require("sequelize");
 
 const db = require("../db/conn");
 
@@ -28,6 +28,15 @@ const Cartoes = db.define("Cartoes", {
   },
   valorTotal: {
     type: DataTypes.FLOAT,
+  },
+  numcartao: {
+    type: DataTypes.INTEGER,
+  },
+  cvv: {
+    type: DataTypes.INTEGER,
+  },
+  validade: {
+    type: DataTypes.INTEGER,
   },
   status: {
     type: DataTypes.BOOLEAN,
