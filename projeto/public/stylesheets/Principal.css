@@ -25,12 +25,21 @@ h5 {
 }
 
 .card-titulo {
-  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   top: 10%;
   left: 25%;
   right: 25%;
   font-family: monospace;
   font-size: 50px;
+}
+
+.card-titulo-sub{
+  display: flex;
+  align-items: center;
+  justify-content : space-around;
+  font-size: 2rem;
 }
 
 .card-botoes {
