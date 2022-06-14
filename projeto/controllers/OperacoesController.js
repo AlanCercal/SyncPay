@@ -2,7 +2,7 @@ const Banco = require("../models/Banco");
 const Operacao = Banco[3];
 const Cartao = Banco[1];
 const Carteira = Banco[2];
-const idUsuario = 1;
+const idUsuario = 2;
 
 function modificarValor(idIni, idDest, valor, res) {
   Carteira.findOne({ raw: true, where: { id: idIni } }).then((dataIni) => {

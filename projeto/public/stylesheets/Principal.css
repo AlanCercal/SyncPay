@@ -1,5 +1,5 @@
 .bem-vindo,
-h5 {
+h5, h3 {
   color: var(--text-color);
 }
 
