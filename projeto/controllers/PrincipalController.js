@@ -1,13 +1,13 @@
 const banco = require("../models/Banco");
 const carteira = banco[2];
 const Cartao = banco[1];
-
+const idUsuario = 1;
 //console.log("\n\n\n", Cartao, "\n\n\n");// para testar os dados
 
 module.exports = class PrincipalController {
 
   static showCartoes(req, res) {
-    Cartao.findAll({ raw: true, where: { id_carteira: "1" } })
+    Cartao.findAll({ raw: true, where: { id_carteira: idUsuario } })
       .then((data) => {
         let emptyCartoes = false;
 

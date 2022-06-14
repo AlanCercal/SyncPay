@@ -18,12 +18,15 @@ h5 {
 }
 
 .card-titulo {
-  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   top: 10%;
   left: 25%;
   right: 25%;
-  font-family: monospace;
+  font-family: monospace, sans-serif;
   font-size: 50px;
+  width: 100%;
 }
 
 .card-botoes {

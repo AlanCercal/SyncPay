@@ -5,10 +5,10 @@ const { Sequelize } = require("sequelize");
 // "fxqR4fsqzc*6eTtZp83F6i%6Pi5N5Gt9MPLVNg&t",
 
 const sequelize = new Sequelize(
-  //"mydb","root","senha",
-  "syncpay",
-  "Erudhir",
-  "fxqR4fsqzc*6eTtZp83F6i%6Pi5N5Gt9MPLVNg&t",
+  "sys","root","catolica",
+  // "syncpay",
+  // "Erudhir",
+  // "fxqR4fsqzc*6eTtZp83F6i%6Pi5N5Gt9MPLVNg&t",
   {
     host: "localhost",
     dialect: "mysql",

@@ -9,9 +9,8 @@ function modificarValor(idIni, idDest, valor, res) {
     Carteira.findOne({ raw: true, where: { id: idDest } }).then((dataDest) => {
       dataIni.valor -= Number(valor);
       dataDest.valor += Number(valor);
-      Carteira.update(dataIni, { where: { id: idIni } });
-      Carteira.update(dataDest, { where: { id: idDest } });
-      res.redirect(301, "/pagamentos");
+      Carteira.update(dataIni, { where: { id: idIni } }).then(() => Carteira.update(dataDest, { where: { id: idDest } }).then(() => res.redirect(301, "/pagamentos")));
+      
     });
   });
 }
@@ -52,11 +51,12 @@ module.exports = class OperacaoController {
 
   static showOperacoes(req, res) {
     let valor = 0;
-    // Cartao.findAll({ raw: true, where: { id_carteira: "1" } }).then((data) => {
-    //   data.forEach((element) => {
-    //     soma += element.valorTotal;
-    //   });
-    // });
+    let valorTotal = 0;
+    Cartao.findAll({ raw: true, where: { id_carteira: idUsuario } }).then((data) => {
+      data.forEach((element) => {
+        valorTotal += element.valorTotal;
+      });
+    });
     Carteira.findOne({ raw: true, where: { id: idUsuario } }).then((data) => {
       valor = data.valor;
     });
@@ -69,6 +69,7 @@ module.exports = class OperacaoController {
         }
         res.render("pagamentos/pagamentos", {
           soma: valor,
+          somaCartao: valorTotal,
           operacoes: data,
           title: "SyncPay - Pagamentos",
           style: "stylesheets/Pagamentos.css",

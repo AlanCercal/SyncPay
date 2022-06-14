@@ -1,19 +1,13 @@
-INSERT INTO `mydb`.`usuarios` (`id`, `nome`, `cpf`, `email`, `senha`, `createdAt`, `updatedAt`) VALUES (`1`, `alan`, `09378293905`, `alan@gmail.com`, `12345678`, `2022-01-01 12:10:05`, `2022-01-01 12:10:05`);
-INSERT INTO `mydb`.`usuarios` (`id`, `nome`, `cpf`, `email`, `senha`, `createdAt`, `updatedAt`) VALUES (`2 `, `gabriel`, `12345678900`, `gabriel@gmail.com`, `12345678`, `2022-01-01 12:10:05`, `2022-01-01 12:10:05`);
+INSERT INTO `sys`.`usuarios` (`id`, `nome`, `cpf`, `email`, `senha`, `createdAt`, `updatedAt`) VALUES ('1', 'alan', '01234567890', 'alan@gmail.com', '12345678', '2022-01-01 12:10:05', '2022-01-01 12:10:05');
+INSERT INTO `sys`.`usuarios` (`id`, `nome`, `cpf`, `email`, `senha`, `createdAt`, `updatedAt`) VALUES ('2', 'gabriel', '12345678900', 'gabriel@gmail.com', '12345678', '2022-01-01 12:10:05', '2022-01-01 12:10:05');
+INSERT INTO `sys`.`usuarios` (`id`, `nome`, `cpf`, `email`, `senha`, `createdAt`, `updatedAt`) VALUES ('3', 'teste', '123456789012', 'teste@teste.com', '12345678', '2022-01-01 12:10:05', '2022-01-01 12:10:05');
 
-INSERT INTO `mydb`.`carteiras` (`id`, `nome`, `createdAt`, `updatedAt`, `id_usuario`) VALUES (`1`, `carteira_alan`, `2022-01-01 12:10:05`, `2022-01-01 12:10:05`, `1`);
+INSERT INTO `sys`.`carteiras` (`id`, `nome`, `valor`, `createdAt`, `updatedAt`, `id_usuario`) VALUES ('1', 'carteira_alan', '100', '2022-01-01 12:10:05', '2022-01-01 12:10:05', '1');
+INSERT INTO `sys`.`carteiras` (`id`, `nome`, `valor`, `createdAt`, `updatedAt`, `id_usuario`) VALUES ('2', 'carteira_gabriel', '300', '2022-01-01 12:10:05', '2022-01-01 12:10:05', '2');
+INSERT INTO `sys`.`carteiras` (`id`, `nome`, `valor`, `createdAt`, `updatedAt`, `id_usuario`) VALUES ('3', 'carteira_teste', '1000', '2022-01-01 12:10:05', '2022-01-01 12:10:05', '3');
 
-INSERT INTO `mydb`.`carteiras` (`id`, `nome`, `createdAt`, `updatedAt`, `id_usuario`) VALUES (`2`, `carteira_gabriel`, `2022-01-01 12:10:05`, `2022-01-01 12:10:05`, `2`);
+INSERT INTO `sys`.`cartoes` (`id`, `nome`, `valorTotal`, `numcartao`, `cvv`, `validade`, `createdAt`, `updatedAt`, `id_carteira`) VALUES ('1', 'visa', '200', '1234567', '019', '022022', '2022-01-01 12:10:05', '2022-01-01 12:10:05', '1');
+INSERT INTO `sys`.`cartoes` (`id`, `nome`, `valorTotal`, `numcartao`, `cvv`, `validade`, `createdAt`, `updatedAt`, `id_carteira`) VALUES ('2', 'master', '500', '987654', '067', '032022', '2022-01-01 12:10:05', '2022-01-01 12:10:05', '1');
+INSERT INTO `sys`.`cartoes` (`id`, `nome`, `valorTotal`, `numcartao`, `cvv`, `validade`, `createdAt`, `updatedAt`, `id_carteira`) VALUES ('3', 'mastercard', '300', '147852', '987', '042022', '2022-01-01 12:10:05', '2022-01-01 12:10:05', '2');
 
-INSERT INTO `mydb`.`operacoes` (`id`, `descricao`,`valor`, `createdAt`, `updatedAt`, `id_carteira`) VALUES (`2`, `transferencia_gabriel`, `100`, `2022-01-01 12:10:05`, `2022-01-01 12:10:05`, `1`);
-
-
-INSERT INTO `mydb`.`operacoes` (`id`, `descricao`,`valor`, `createdAt`, `updatedAt`) VALUES (`2`, `pagamento boleto`, `-200`, `2022-01-01 12:10:05`, `2022-01-01 12:10:05`, `1`);
-
-
-INSERT INTO `mydb`.`operacoes` (`id`, `descricao`,`valor`, `createdAt`, `updatedAt`) VALUES (`2`, `transferencia_alan`, `-100`, `2022-01-01 12:10:05`, `2022-01-01 12:10:05`, `2`);
-
-INSERT INTO `mydb`.`cartoes` (`id`, `nome`, `valorTotal`, `createdAt`, `updatedAt`, `id_carteira`) VALUES (`1`, `visa`, `400`, `2022-01-01 12:10:05`, `2022-01-01 12:10:05`, `1`);
-INSERT INTO `mydb`.`cartoes` (`id`, `nome`, `valorTotal`, `createdAt`, `updatedAt`, `id_carteira`) VALUES (`2`, `master`, `100`, `2022-01-01 12:10:05`, `2022-01-01 12:10:05`, `1`);
-INSERT INTO `mydb`.`cartoes` (`id`, `nome`, `valorTotal`, `createdAt`, `updatedAt`, `id_carteira`) VALUES (`3`, `elo`, `500`, `2022-01-01 12:10:05`, `2022-01-01 12:10:05`, `2`);
 
