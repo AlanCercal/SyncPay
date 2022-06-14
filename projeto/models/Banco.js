@@ -51,6 +51,9 @@ const Carteira = db.define("Carteira", {
   status: {
     type: DataTypes.BOOLEAN,
   },
+  valor:{
+    type: DataTypes.FLOAT,
+  },
 });
 
 const Operacoes = db.define("Operacoes", {

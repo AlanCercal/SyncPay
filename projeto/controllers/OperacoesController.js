@@ -39,22 +39,24 @@ module.exports = class OperacaoController {
   }
 
   static showOperacoes(req, res) {
-    let soma = 0;
-    Cartao.findAll({ raw: true, where: { id_carteira: "1" } }).then((data) => {
-      data.forEach((element) => {
-        soma += element.valorTotal;
-      });
+    let valor = 0;
+    // Cartao.findAll({ raw: true, where: { id_carteira: "1" } }).then((data) => {
+    //   data.forEach((element) => {
+    //     soma += element.valorTotal;
+    //   });
+    // });
+    Carteira.findOne({ raw: true, where: { id: "1" } }).then((data) => {
+      valor = data.valor;
     });
+
     Operacao.findAll({ raw: true, where: { id_carteira: "1" } })
       .then((data) => {
         let emptyOperacoes = false;
-
         if (data.length === 0) {
           emptyOperacoes = true;
         }
-
         res.render("pagamentos/pagamentos", {
-          soma: soma,
+          soma: valor,
           operacoes: data,
           title: "SyncPay - Pagamentos",
           style: "stylesheets/Pagamentos.css",
