@@ -1,6 +1,7 @@
 const Banco = require("../models/Banco");
 const Operacao = Banco[3];
 const Cartao = Banco[1];
+const Carteira = Banco[2];
 
 module.exports = class OperacaoController {
   static createOperacao(req, res) {
@@ -8,38 +9,52 @@ module.exports = class OperacaoController {
   }
 
   static createOperacaoSave(req, res) {
-    const operacao = {
-      descricao: req.body.descricao,
-      valor: req.body.valor,
-      status: false,
-      id_carteira: "1", // mudar quando tiver o login funcionando
-    };
+    Carteira.findOne({
+      raw: true,
+      where: { id: req.body.idCarteira },
+    })
+      .then((data) => {
+        const operacaoIda = {
+          descricao: `para ${data.nome}`,
+          valor: -req.body.valorTransf,
+          status: false,
+          id_carteira: "1", // mudar quando tiver o login funcionando
+        };
+        const operacaoVolta = {
+          descricao: `recebido de ${data.nome}`, // mudar depois
+          valor: req.body.valorTransf,
+          status: false,
+          id_carteira: req.body.idCarteira, // mudar quando tiver o login funcionando
+        };
 
-    Operacao.create(operacao)
-      .then(res.redirect("/pagamentos"))
-      .catch((err) => console.log());
+        Operacao.create(operacaoIda)
+          .then(
+            Operacao.create(operacaoVolta)
+              .then(res.redirect(301, "/pagamentos"))
+              .catch((err) => console.log(err))
+          )
+          .catch((err) => console.log(err));
+      })
+      .catch((err) => console.log(err));
   }
 
   static showOperacoes(req, res) {
     let soma = 0;
-    Cartao.findAll({ raw: true, where: { id_carteira: "1" } })
-        .then((data) => {
-        
-        data.forEach(element => {
-           soma += element.valorTotal;
-        });
-
-      })
-    Operacao.findAll({ raw: true, where: { id_carteira: "1" }, })
+    Cartao.findAll({ raw: true, where: { id_carteira: "1" } }).then((data) => {
+      data.forEach((element) => {
+        soma += element.valorTotal;
+      });
+    });
+    Operacao.findAll({ raw: true, where: { id_carteira: "1" } })
       .then((data) => {
         let emptyOperacoes = false;
 
         if (data.length === 0) {
           emptyOperacoes = true;
         }
-      
+
         res.render("pagamentos/pagamentos", {
-          soma:soma,
+          soma: soma,
           operacoes: data,
           title: "SyncPay - Pagamentos",
           style: "stylesheets/Pagamentos.css",

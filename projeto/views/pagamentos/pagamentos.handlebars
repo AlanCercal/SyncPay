@@ -8,7 +8,7 @@
   <div class="card-botoes">
     <button class="botao">BOLETO</button>
     <button class="botao">PIX</button>
-    <button class="botao">TRANSFERÊNCIA</button>
+    <button class="botao trans" onclick="transferencia()">TRANSFERÊNCIA</button>
     <button class="botao">SAQUE</button>
   </div>
 
@@ -41,7 +41,21 @@
     </ul>
   </div>
 </div>
-{{! //tempo.innerHTML = tempo.innerHTML.slice(0, tempo.innerHTML.indexOf("GMT")); }); }}
+
+<div class="modal-container" style="display:none;">
+  <div class="modal-trans">
+    <button class="fechar">X</button>
+    <form action="/pagamentos/add" method="POST">
+      <h3 class="subtitulo">TRANSFERIR</h3>
+      <label for="idCarteira" style="font-size: 15px;"> ID da carteira destino:</label>
+      <input type="number" name="idCarteira" value="" />
+      <label for="valorTransf" style="font-size: 15px;"> Valor para tranferência:</label>
+      <input type="number" name="valorTransf" value="" />
+      <input type="submit" class="btn btn-primary adicionar" value="TRANSFERIR" />
+    </form>
+  </div>
+</div>
+
 <script>
   let valor = document.querySelectorAll(".table-row"); valor.forEach((val) =>{
   let color = val.querySelector(".col-3");color.style.color = color.innerHTML
@@ -49,5 +63,15 @@
   new Date(hor.innerHTML); let opcoes = {year: "numeric", month: "numeric", day:
   "numeric", hour:"numeric", minute: "numeric", second: "numeric", hour12:
   false}; hor.innerHTML = Intl.DateTimeFormat('pt-BR', opcoes).format(tempo);
-  });
+  }); let modal = document.querySelector(".modal-container"); let trans =
+  document.querySelector(".trans"); let fechar =
+  document.querySelectorAll(".fechar"); 
+  let btnTrans = document.querySelector(".adicionar");
+  fechar.forEach((fecha) =>
+  {fecha.addEventListener("click", () => { [modal].forEach((modal) =>
+  {modal.style.display = "none";})});}); function transferencia(){
+  modal.style.display = modal.style.display === "none" ? "flex": "none";
+  
+  console.log(trans); }
+
 </script>
