@@ -2,6 +2,19 @@ const Banco = require("../models/Banco");
 const Operacao = Banco[3];
 const Cartao = Banco[1];
 const Carteira = Banco[2];
+const idUsuario = 1;
+
+function modificarValor(idIni, idDest, valor, res) {
+  Carteira.findOne({ raw: true, where: { id: idIni } }).then((dataIni) => {
+    Carteira.findOne({ raw: true, where: { id: idDest } }).then((dataDest) => {
+      dataIni.valor -= Number(valor);
+      dataDest.valor += Number(valor);
+      Carteira.update(dataIni, { where: { id: idIni } });
+      Carteira.update(dataDest, { where: { id: idDest } });
+      res.redirect(301, "/pagamentos");
+    });
+  });
+}
 
 module.exports = class OperacaoController {
   static createOperacao(req, res) {
@@ -18,7 +31,7 @@ module.exports = class OperacaoController {
           descricao: `para ${data.nome}`,
           valor: -req.body.valorTransf,
           status: false,
-          id_carteira: "1", // mudar quando tiver o login funcionando
+          id_carteira: idUsuario, // mudar quando tiver o login funcionando
         };
         const operacaoVolta = {
           descricao: `recebido de ${data.nome}`, // mudar depois
@@ -26,11 +39,10 @@ module.exports = class OperacaoController {
           status: false,
           id_carteira: req.body.idCarteira, // mudar quando tiver o login funcionando
         };
-
         Operacao.create(operacaoIda)
           .then(
             Operacao.create(operacaoVolta)
-              .then(res.redirect(301, "/pagamentos"))
+              .then(modificarValor(idUsuario, data.id, req.body.valorTransf, res))
               .catch((err) => console.log(err))
           )
           .catch((err) => console.log(err));
@@ -45,11 +57,11 @@ module.exports = class OperacaoController {
     //     soma += element.valorTotal;
     //   });
     // });
-    Carteira.findOne({ raw: true, where: { id: "1" } }).then((data) => {
+    Carteira.findOne({ raw: true, where: { id: idUsuario } }).then((data) => {
       valor = data.valor;
     });
 
-    Operacao.findAll({ raw: true, where: { id_carteira: "1" } })
+    Operacao.findAll({ raw: true, where: { id_carteira: idUsuario } })
       .then((data) => {
         let emptyOperacoes = false;
         if (data.length === 0) {
