@@ -48,6 +48,9 @@ const Carteira = db.define("Carteira", {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  valor: {
+    type: DataTypes.FLOAT,
+  },
   status: {
     type: DataTypes.BOOLEAN,
   },
