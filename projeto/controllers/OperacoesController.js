@@ -2,15 +2,18 @@ const Banco = require("../models/Banco");
 const Operacao = Banco[3];
 const Cartao = Banco[1];
 const Carteira = Banco[2];
-const idUsuario = 2;
+let idUsuario;
 
 function modificarValor(idIni, idDest, valor, res) {
   Carteira.findOne({ raw: true, where: { id: idIni } }).then((dataIni) => {
     Carteira.findOne({ raw: true, where: { id: idDest } }).then((dataDest) => {
       dataIni.valor -= Number(valor);
       dataDest.valor += Number(valor);
-      Carteira.update(dataIni, { where: { id: idIni } }).then(() => Carteira.update(dataDest, { where: { id: idDest } }).then(() => res.redirect(301, "/pagamentos")));
-      
+      Carteira.update(dataIni, { where: { id: idIni } }).then(() =>
+        Carteira.update(dataDest, { where: { id: idDest } }).then(() =>
+          res.redirect(301, "/pagamentos")
+        )
+      );
     });
   });
 }
@@ -41,7 +44,9 @@ module.exports = class OperacaoController {
         Operacao.create(operacaoIda)
           .then(
             Operacao.create(operacaoVolta)
-              .then(modificarValor(idUsuario, data.id, req.body.valorTransf, res))
+              .then(
+                modificarValor(idUsuario, data.id, req.body.valorTransf, res)
+              )
               .catch((err) => console.log(err))
           )
           .catch((err) => console.log(err));
@@ -52,11 +57,14 @@ module.exports = class OperacaoController {
   static showOperacoes(req, res) {
     let valor = 0;
     let valorTotal = 0;
-    Cartao.findAll({ raw: true, where: { id_carteira: idUsuario } }).then((data) => {
-      data.forEach((element) => {
-        valorTotal += element.valorTotal;
-      });
-    });
+    idUsuario = Number(req.query.id);
+    Cartao.findAll({ raw: true, where: { id_carteira: idUsuario } }).then(
+      (data) => {
+        data.forEach((element) => {
+          valorTotal += element.valorTotal;
+        });
+      }
+    );
     Carteira.findOne({ raw: true, where: { id: idUsuario } }).then((data) => {
       valor = data.valor;
     });
@@ -71,8 +79,9 @@ module.exports = class OperacaoController {
           soma: valor,
           somaCartao: valorTotal,
           operacoes: data,
+          idUsuario: idUsuario,
           title: "SyncPay - Pagamentos",
-          style: "stylesheets/Pagamentos.css",
+          style: "/stylesheets/Pagamentos.css",
         });
       })
       .catch((err) => console.log(err));

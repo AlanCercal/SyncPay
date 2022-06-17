@@ -1,7 +1,7 @@
 const banco = require("../models/Banco");
 const carteira = banco[2];
 const Cartao = banco[1];
-const idUsuario = 1;
+let idUsuario = 1;
 //console.log("\n\n\n", Cartao, "\n\n\n");// para testar os dados
 
 module.exports = class CartaoController {
@@ -10,6 +10,7 @@ module.exports = class CartaoController {
   }
 
   static createCartaoSave(req, res) {
+    //idUsuario = Number(req.query.id);
     const cartao = {
       nome: req.body.cartaoNome,
       valorTotal: req.body.cartaoSaldo,
@@ -17,7 +18,7 @@ module.exports = class CartaoController {
       cvv: req.body.cvv,
       validade: req.body.validade,
       status: false,
-      id_carteira: idUsuario, // mudar quando tiver o login funcionanado
+      id_carteira: Number(idUsuario), // mudar quando tiver o login funcionanado
     };
 
     Cartao.create(cartao)
@@ -28,6 +29,8 @@ module.exports = class CartaoController {
   }
 
   static showCartoes(req, res) {
+    idUsuario = Number(req.query.id);
+    console.log(isNaN(idUsuario)+"\n\n\n");
     Cartao.findAll({ raw: true, where: { id_carteira: idUsuario } })
       .then((data) => {
         let emptyCartoes = false;
@@ -37,8 +40,10 @@ module.exports = class CartaoController {
         }
         res.render("cartoes/cartoes", {
           cartoes: data,
+          idUsuario: idUsuario,
           title: "SyncPay - Cartões",
-          style: "stylesheets/Cartoes.css",
+          style: "/stylesheets/Cartoes.css",
+          icons: "stylesheets/boxicons.min.css",
         });
       })
       .catch((err) => console.log(err));
@@ -48,13 +53,13 @@ module.exports = class CartaoController {
     const id = req.body.id;
 
     Cartao.destroy({ where: { id: id } })
-      .then(res.redirect(301, "/cartoes"))
+      .then(res.redirect(301, `/cartoes/?id=${idUsuario}`))
       .catch((err) => console.log());
   }
 
   static updateCartao(req, res) {
     const id = req.params.id;
-    //console.log("\n\n\nentrou aqui - " + id + "\n\n\n\n");
+    console.log("\n\n\nentrou aqui - " + id + "\n\n\n\n");
     Cartao.findOne({ where: { id: id }, raw: true })
       .then((data) => {
         //console.log(data);
@@ -65,8 +70,8 @@ module.exports = class CartaoController {
         };
         //console.log(cartao);
         Cartao.update(cartao, { where: { id: id } })
-          .then(res.redirect(301, "/cartoes"))
-          .catch((err) => console.log());
+          .then(res.redirect(301, `/cartoes/?id=${idUsuario}`))
+          .catch((err) => console.log("\n\n\n", err));
         //res.render("cartoes/edit", { cartao: data });
       })
       .catch((err) => console.log());

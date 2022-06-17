@@ -10,9 +10,8 @@ var router = express.Router();
 //   });
 // });
 
-const PrincipalController = require('../controllers/PrincipalController');
+const PrincipalController = require("../controllers/PrincipalController");
 
-router.get('/', PrincipalController.showCartoes);
-
+router.get("/", PrincipalController.showCartoes);
 
 module.exports = router;

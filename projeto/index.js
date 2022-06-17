@@ -1,7 +1,28 @@
 const express = require("express");
 const exphbs = require("express-handlebars");
-
+const passport = require("passport");
+const session = require("express-session");
+const flash = require("connect-flash");
 const app = express();
+
+// require("./controllers/auth")(passport);
+// app.use(
+//   session({
+//     secret: "chave secreta grande",
+//     resave: false,
+//     saveUninitialized: false,
+//   })
+// );
+// app.use(passport.initialize());
+// app.use(passport.session());
+
+// app.use(flash());
+// app.use((req, res, next) => {
+//   res.locals.success_msg = req.flash("success_msg");
+//   res.locals.error_msg = req.flash("error_msg");
+//   res.locals.error = req.flash("error");
+//   next();
+// });
 
 const conn = require("./db/conn");
 
@@ -13,9 +34,6 @@ const loginRoutes = require("./routes/login");
 const cartoesRoutes = require("./routes/cartoes");
 const pagamentosRoutes = require("./routes/pagamentos");
 const usersRoutes = require("./routes/users");
-//const passport = require("passport");
-
-
 
 app.engine(
   "handlebars",

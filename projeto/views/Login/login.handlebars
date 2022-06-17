@@ -1,43 +1,62 @@
-<body>
-  <section class="vh-100 gradient-custom">
-    <div class="container py-5 h-100">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-          <div class="card bg-dark text-white" style="border-radius: 1rem">
-            <div class="card-body p-2 text-center">
-              <div class="mb-md-5 mt-md-4 pb-5">
-                <h2 class="fw-bold mb-1 text-uppercase">Login</h2>
-                <p class="text-white-50 mb-5">
-                  Por favor, entre com seu usuário e senha!
+<section class="vh-100 gradient-custom">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card bg-dark text-white" style="border-radius: 1rem">
+          <div class="card-body p-2 text-center">
+            <div class="mb-md-5 mt-md-4 pb-5">
+              <h2 class="fw-bold mb-1 text-uppercase">Login</h2>
+              <p class="text-white-50 mb-5">
+                Por favor, entre com seu usuário e senha!
+              </p>
+              <form action="/login" method="POST">
+                <div class="form-outline form-white mb-4">
+                  <input
+                    type="email"
+                    name="email"
+                    class="form-control-sm form-control-lg"
+                  />
+                  <br />
+                  <label class="form-label" for="email">E-mail</label>
+                </div>
+
+                <div class="form-outline form-white mb-4">
+                  <input
+                    type="password"
+                    name="senha"
+                    class="form-control-sm form-control-lg"
+                  />
+                  <br />
+                  <label class="form-label" for="senha">Senha</label>
+                </div>
+
+                <p class="small mb-2 pb-lg-2">
+                  <a class="text-white-50" href="">Esqueceu sua senha?</a>
                 </p>
-                <form action="/" method="POST">
-                  <div class="form-outline form-white mb-4">
-                    <input type="email" name="typeEmailX" class="form-control-sm form-control-lg"/>
-                    <br />
-                    <label class="form-label" for="typeEmailX">E-mail</label>
-                  </div>
 
-                  <div class="form-outline form-white mb-4">
-                    <input type="password" name="typePasswordX" class="form-control-sm form-control-lg"/>
-                    <br />
-                    <label class="form-label" for="typePasswordX">Senha</label>
-                  </div>
-
-                  <p class="small mb-2 pb-lg-2">
-                    <a class="text-white-50" href="cadastro">Esqueceu sua senha?</a>
-                  </p>
-
-                  <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
-                </form>
-              </div>
-              <div>
-                <p class="mb-0">Não tem conta?<a href="./cadastro.html" class="text-white-50 fw-bold">Cadastre-se</a>
-                </p>
-              </div>
+                <button
+                  class="btn btn-outline-light btn-lg px-5"
+                  type="submit"
+                >Login</button>
+              </form>
+            </div>
+            <div>
+              <p class="mb-0">Não tem conta?
+                <a
+                  href="/login/cadastro"
+                  class="text-white-50 fw-bold"
+                >Cadastre-se</a>
+              </p>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
-</body>
+  </div>
+</section>
+
+<script>
+  let form = document.querySelector("form"); let email = form[0]; let senha =
+  form[1]; let botao = form[2];
+  console.log(form, email, senha);
+</script>
