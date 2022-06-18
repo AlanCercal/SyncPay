@@ -12,6 +12,6 @@ var router = express.Router();
 
 const PrincipalController = require("../controllers/PrincipalController");
 
-router.get("/", PrincipalController.showCartoes);
+router.get("/user=:user", PrincipalController.showCartoes);
 
 module.exports = router;

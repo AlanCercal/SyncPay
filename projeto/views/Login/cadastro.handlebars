@@ -9,61 +9,62 @@
               <p class="text-white-50 mb-5">
                 Por favor, informe seus dados!
               </p>
+              <form action="/login/cadastro" method="POST">
+                <div class="form-outline form-white mb-4">
+                  <input
+                    type="text"
+                    name="nome"
+                    class="form-control-sm form-control-lg"
+                  />
+                  <br />
+                  <label class="form-label" for="nome">Nome Completo</label>
+                </div>
 
-              <div class="form-outline form-white mb-4">
-                <input
-                  type="email"
-                  id="typeEmailX"
-                  class="form-control-sm form-control-lg"
-                />
-                <br />
-                <label class="form-label" for="typeEmailX">Nome Completo</label>
-              </div>
+                <div class="form-outline form-white mb-4">
+                  <input
+                    type="text"
+                    name="cpf"
+                    class="form-control-sm form-control-lg"
+                  />
+                  <br />
+                  <label class="form-label" for="cpf">CPF</label>
+                </div>
 
-              <div class="form-outline form-white mb-4">
-                <input
-                  type="email"
-                  id="typeEmailX"
-                  class="form-control-sm form-control-lg"
-                />
-                <br />
-                <label class="form-label" for="typeEmailX">CPF</label>
-              </div>
+                <div class="form-outline form-white mb-4">
+                  <input
+                    type="email"
+                    name="email"
+                    class="form-control-sm form-control-lg"
+                  />
+                  <br />
+                  <label class="form-label" for="email">Email</label>
+                </div>
 
-              <div class="form-outline form-white mb-4">
-                <input
-                  type="email"
-                  id="typeEmailX"
-                  class="form-control-sm form-control-lg"
-                />
-                <br />
-                <label class="form-label" for="typeEmailX">Email</label>
-              </div>
+                <div class="form-outline form-white mb-4">
+                  <input
+                    type="password"
+                    name="senha"
+                    class="form-control-sm form-control-lg"
+                  />
+                  <br />
+                  <label class="form-label" for="senha">Senha</label>
+                </div>
 
-              <div class="form-outline form-white mb-4">
-                <input
-                  type="password"
-                  id="typePasswordX"
-                  class="form-control-sm form-control-lg"
-                />
-                <br />
-                <label class="form-label" for="typePasswordX">Senha</label>
-              </div>
+                <div class="form-outline form-white mb-4">
+                  <input
+                    type="password"
+                    name="senhaRep"
+                    class="form-control-sm form-control-lg"
+                  />
+                  <br />
+                  <label class="form-label" for="senhaRep">Repita a Senha</label>
+                </div>
 
-              <div class="form-outline form-white mb-4">
-                <input
-                  type="password"
-                  id="typePasswordX"
-                  class="form-control-sm form-control-lg"
-                />
-                <br />
-                <label class="form-label" for="typePasswordX">Repita a Senha</label>
-              </div>
-
-              <button
-                class="btn btn-outline-light btn-lg px-5"
-                type="submit"
-              >Cadastrar</button>
+                <button
+                  class="btn btn-outline-light btn-lg px-5"
+                  type="submit"
+                >Cadastrar</button>
+              </form>
             </div>
           </div>
         </div>

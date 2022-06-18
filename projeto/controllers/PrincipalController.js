@@ -4,11 +4,11 @@ const Cartao = banco[1];
 
 module.exports = class PrincipalController {
   static showCartoes(req, res) {
-    const idUsuario = Number(req.query.id);
-    console.log(idUsuario, "----", req.query, "\n\n\n");
+    const idUsuario = Number(req.params.user);
+    console.log(idUsuario, "----", req.params.user, "\n\n\n");
     Cartao.findAll({ raw: true, where: { id_carteira: idUsuario } }).then(
       (data1) => {
-        Carteira.findOne({ raw: true, Where: { id_usuario: idUsuario } })
+        Carteira.findOne({ raw: true, where: { id: idUsuario } })
           .then((data2) => {
             let emptyCartoes = false;
             if (data1.length === 0) {
@@ -16,9 +16,11 @@ module.exports = class PrincipalController {
             }
 
             let soma = 0;
-            data1.forEach((element) => {
-              soma += element.valorTotal;
-            });
+            if (data1) {
+              data1.forEach((element) => {
+                soma += element.valorTotal;
+              });
+            }
             let somaTotal = soma + data2.valor;
             res.render("principal/principal", {
               soma: somaTotal,

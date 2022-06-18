@@ -19,6 +19,7 @@ router.get("/cadastro", function (req, res, next) {
   });
 });
 
-router.post("/", LoginController.verificarLogin);
+router.post("/login", LoginController.verificarLogin);
+router.post("/cadastro", LoginController.verificarCadastro);
 
 module.exports = router;

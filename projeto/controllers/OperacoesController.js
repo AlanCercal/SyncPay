@@ -3,6 +3,7 @@ const Operacao = Banco[3];
 const Cartao = Banco[1];
 const Carteira = Banco[2];
 let idUsuario;
+let nomeCarteira;
 
 function modificarValor(idIni, idDest, valor, res) {
   Carteira.findOne({ raw: true, where: { id: idIni } }).then((dataIni) => {
@@ -11,7 +12,7 @@ function modificarValor(idIni, idDest, valor, res) {
       dataDest.valor += Number(valor);
       Carteira.update(dataIni, { where: { id: idIni } }).then(() =>
         Carteira.update(dataDest, { where: { id: idDest } }).then(() =>
-          res.redirect(301, "/pagamentos")
+          res.redirect(301, `/pagamentos/user=${idUsuario}`)
         )
       );
     });
@@ -33,13 +34,13 @@ module.exports = class OperacaoController {
           descricao: `para ${data.nome}`,
           valor: -req.body.valorTransf,
           status: false,
-          id_carteira: idUsuario, // mudar quando tiver o login funcionando
+          id_carteira: idUsuario,
         };
         const operacaoVolta = {
-          descricao: `recebido de ${data.nome}`, // mudar depois
+          descricao: `recebido de ${nomeCarteira}`,
           valor: req.body.valorTransf,
           status: false,
-          id_carteira: req.body.idCarteira, // mudar quando tiver o login funcionando
+          id_carteira: req.body.idCarteira,
         };
         Operacao.create(operacaoIda)
           .then(
@@ -57,7 +58,7 @@ module.exports = class OperacaoController {
   static showOperacoes(req, res) {
     let valor = 0;
     let valorTotal = 0;
-    idUsuario = Number(req.query.id);
+    idUsuario = Number(req.params.user);
     Cartao.findAll({ raw: true, where: { id_carteira: idUsuario } }).then(
       (data) => {
         data.forEach((element) => {
@@ -67,6 +68,7 @@ module.exports = class OperacaoController {
     );
     Carteira.findOne({ raw: true, where: { id: idUsuario } }).then((data) => {
       valor = data.valor;
+      nomeCarteira = data.nome;
     });
 
     Operacao.findAll({ raw: true, where: { id_carteira: idUsuario } })

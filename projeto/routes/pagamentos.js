@@ -16,7 +16,7 @@ router.post('/add', PagamentosController.createOperacaoSave);
 router.post('/remove', PagamentosController.removeOperacao);
 router.get('/edit/:id', PagamentosController.updateOperacao);
 router.post('/edit', PagamentosController.updateOperacaoPost);
-router.get('/', PagamentosController.showOperacoes);
+router.get('/user=:user', PagamentosController.showOperacoes);
 
 router.post('/updatestatus', PagamentosController.changeStatus);
 
