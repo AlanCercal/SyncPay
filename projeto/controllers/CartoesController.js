@@ -50,20 +50,21 @@ module.exports = class CartaoController {
 
   static removeCartao(req, res) {
     const id = req.body.id;
-
-    Cartao.destroy({ where: { id: id } })
-      .then(res.redirect(301, `/cartoes/user=${id_Usuario}`))
+    const id_Usuario = req.params.user;
+    Cartao.destroy({raw:true,  where: { id: id } })
+      .then(() =>{
+        res.redirect(301, `/cartoes/user=${id_Usuario}`);
+      })
       .catch((err) => console.log());
   }
 
   static updateCartao(req, res) {
     let id = req.params.id;
+    let id_Usuario = req.params.user;
     console.log("entrou aqui");
     console.log("\n\n\nentrou aqui - " + req.originalUrl + "\n\n\n\n");
     Cartao.findOne({ where: { id: id } })
       .then((data) => {
-        //console.log(data);
-
         const cartao = {
           nome: req.query.nome,
           numcartao: req.query.numcartao,
@@ -73,12 +74,15 @@ module.exports = class CartaoController {
         };
         console.log(cartao);
         Cartao.update(cartao, { where: { id: id } })
-          .then(res.redirect(301, `/cartoes/user=${id_Usuario}`))
+          .then(() => {
+            res.redirect(301, `/cartoes/user=${id_Usuario}`);
+          })
           .catch((err) => console.log(err));
         //res.render("cartoes/edit", { cartao: data });
       })
       .catch((err) => console.log(err));
   }
+
 
   static updateCartaoPost(req, res) {
     // const id = req.body.id;
@@ -104,7 +108,7 @@ module.exports = class CartaoController {
     console.log(cartao);
 
     Cartao.update(cartao, { where: { id: id } })
-      .then(res.redirect("/cartoes"))
+      .then(res.redirect(301,"/cartoes"))
       .catch((err) => console.log());
   }
 };
